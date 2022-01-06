@@ -25,3 +25,14 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
 - So using `ps` command we can see all the imformation about the image, like the id, etc.
 - For seeing all the images that have been created, we can use another ps command, `docker ps --all`. This will show all the containers which were created. ![image](https://user-images.githubusercontent.com/63965898/148262216-fdde8f83-9dc3-44f7-b796-5f960f237509.png)
 
+### Container lifecycle
+
+<img src="https://user-images.githubusercontent.com/63965898/148417361-c98efdca-bf44-42cb-87f4-c0ce61e4cf85.png" width="600" height="350"/>
+
+#### `docker run = docker create + docker start`
+
+- The `run` command is the combination of two other commands called `create` and `start`.
+- the `create` comammnd is used to only create the container.
+  - Like : ![image](https://user-images.githubusercontent.com/63965898/148419543-d8eb559d-b3e9-4059-8d9a-5005a9794359.png)
+  - The long aplha numberic string is the id of the conatiner. The `create` command just created a container.
+- the `start` command is used to start the container.
