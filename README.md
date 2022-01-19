@@ -36,3 +36,50 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
   - Like : ![image](https://user-images.githubusercontent.com/63965898/148419543-d8eb559d-b3e9-4059-8d9a-5005a9794359.png)
   - The long aplha numberic string is the id of the conatiner. The `create` command just created a container.
 - the `start` command is used to start the container.
+- but when we use `start` like `docker start container_id` it just prints the id of the container.
+- for getting the output we will have to use the start command like `docker start -a cotainer_id`.
+- so by default `run` command runs the container and prints the output.
+
+### `system prune` command
+- this commad is used to remove 
+  - all the stopped container.
+  - all networks not used by atleast one container.
+  - all dangling images.
+  - all build cache - all the images downloaded from docker hub.
+
+- Example of - `docker system prune`
+- ![image](https://user-images.githubusercontent.com/63965898/150167914-57b4ab30-9cd8-4950-8ccc-9fa4b087baca.png)
+
+### `docker logs` command
+
+- this command shows all the logs that have been printed by a container.
+- it does not re run the container but just prints all the logs printed during the container execution.
+- Example :
+ ![image](https://user-images.githubusercontent.com/63965898/150169363-fd9fea04-2a48-4493-a325-741643b7059d.png)
+- in the above picture we created a container
+- then we started the container with `docker start`, without -a, this will execute / run the conatiner internally.
+- now when we execute `docker logs conatiner_id`, we can see the logs or output that was emitted by the container during it's execution.
+- the logs sommand go back to the conatiner and fetches all the logs that hve been emitted by the container.
+
+### `stop` and `kill` command
+
+- both _stop_ and _kill_ command are used to stop a a running continer.
+- difference is just that, `stop` is like shutting down, it performs some cleaning operations and then gracefully shuts down the container.
+- while the `kill` command is like power off, it doesn't do any operation and directly kills all the process of the container.
+- also, if the _stop_ command takes more than 10 seconds to stop a container than docker internally calls the _kill_ command.
+
+![image](https://user-images.githubusercontent.com/63965898/150172729-8ac42b2c-11b1-49e3-9bf4-954be5689a71.png)
+
+- in the above image first we created a container.
+- then we started the conatiner.
+- the conatiner runs for forever.
+- now first we gave the `stop` command but it takes more than 10 seconds and docker runs the `kill` command internally.
+- after that we started the conatiner one more time.
+- this time we give the `kill` command and the conatiner is stopped instantly.
+
+
+
+
+
+
+
