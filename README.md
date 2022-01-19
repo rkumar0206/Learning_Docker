@@ -10,12 +10,16 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
 
 ## Docker Commands
 
+---
+
 ### `run` command
 - Used to run the docker image
 - first it searches the images locally, if it finds then it runs the image from local storage
 - if it cannot find the image locally, then it searches it on the remote repository, if the image is found, it downloads the image and then run it, otherwise it shows the error
 - Example : ![image](https://user-images.githubusercontent.com/63965898/148259235-e2916273-8386-4f3c-93a3-41b0d59bb50e.png)
 - In the ablove picture I first excecuted the run command to use the busybox image, so the docker started searching it locally and after it cannot find it locally it searched it on remote repository and then downloaded it and then executed successfully.
+
+---
 
 ### `ps` command
 - It is used to list all the running containers
@@ -24,6 +28,8 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
 - So for running the busybox for longer amount of time we can use the command `docker run busybox ping google.com`, this will run busybox image for longer amount of time and actually it will keep running, so we can open an another window and try runnning `docker ps`, and now it will show the busybox in the table.![image](https://user-images.githubusercontent.com/63965898/148261448-03886243-b12f-4173-b644-05c6e084057f.png)
 - So using `ps` command we can see all the imformation about the image, like the id, etc.
 - For seeing all the images that have been created, we can use another ps command, `docker ps --all`. This will show all the containers which were created. ![image](https://user-images.githubusercontent.com/63965898/148262216-fdde8f83-9dc3-44f7-b796-5f960f237509.png)
+
+---
 
 ### Container lifecycle
 
@@ -40,6 +46,8 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
 - for getting the output we will have to use the start command like `docker start -a cotainer_id`.
 - so by default `run` command runs the container and prints the output.
 
+---
+
 ### `system prune` command
 - this commad is used to remove 
   - all the stopped container.
@@ -49,6 +57,8 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
 
 - Example of - `docker system prune`
 - ![image](https://user-images.githubusercontent.com/63965898/150167914-57b4ab30-9cd8-4950-8ccc-9fa4b087baca.png)
+
+---
 
 ### `docker logs` command
 
@@ -60,6 +70,8 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
 - then we started the container with `docker start`, without -a, this will execute / run the conatiner internally.
 - now when we execute `docker logs conatiner_id`, we can see the logs or output that was emitted by the container during it's execution.
 - the logs sommand go back to the conatiner and fetches all the logs that hve been emitted by the container.
+
+---
 
 ### `stop` and `kill` command
 
@@ -76,6 +88,29 @@ for more follow this link : https://www.ibm.com/cloud/learn/docker - this link h
 - now first we gave the `stop` command but it takes more than 10 seconds and docker runs the `kill` command internally.
 - after that we started the conatiner one more time.
 - this time we give the `kill` command and the conatiner is stopped instantly.
+
+---
+
+### `exec` command
+
+- it is used to execute additional command inside the conatiner.
+__Let's see an example : 
+- for this first of all let's get redis image, therefore run `doceke run redis`
+
+![image](https://user-images.githubusercontent.com/63965898/150177513-8891d92a-3508-46bc-b04e-03f9b38b6d55.png)
+
+- we can see that the redis image has been successfully installed and now it is ready to accept connactions.
+- now open a second terminal window and get the id of redis conatiner by using `docker ps`.
+- now in this window we will use `exec` command to run an additional command called _redis-cli_.
+- therfore, use this, `docker exec -it conatiner_id redis-cli`,
+- here we have used _-it_, this allows us to provid input to the container.
+- execute the command.
+
+![image](https://user-images.githubusercontent.com/63965898/150178643-45f3fe15-2d6a-44e6-b733-512f51645a11.png)
+- in the above image we can see how we can use redis-cli.
+- if we try to use redis-cli without the _-it_ flag, then it will not work and will navigute back to the terminal.
+
+![image](https://user-images.githubusercontent.com/63965898/150178791-68adef58-2b00-474c-85e4-bb76a1f86d49.png)
 
 
 
